@@ -5,6 +5,7 @@
  */
 package Class;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 
@@ -13,20 +14,42 @@ import java.util.Comparator;
  * @author ASUS
  */
 public class Lists extends Songs implements Interface.IMusic ,Comparable<Lists>, Comparator<Lists>  {
+     public ArrayList<Lists> arrayList = new ArrayList<>();
 
+    public Lists(String title, int identifier, LocalDate date, double duration, String genre, String cover, String description) {
+        super(title, identifier, date, duration, genre, cover, description);
+    }
+
+    public Lists() {
+    }
+
+    public ArrayList<Lists> getArrayList() {
+        return arrayList;
+    }
+
+    public void setArrayList(ArrayList<Lists> arrayList) {
+        this.arrayList = arrayList;
+    } 
+    
     @Override
     public int musicCounter() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+         return arrayList.size();  
+    }  
 
     @Override
     public String message() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return "Song: " + getIdentifier() + " - Título: " + getTitle() + " - Duración: " + getDuration() + " - Fecha: " + getDate();
     }
 
     @Override
     public ArrayList<Lists> toSearch(String genre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ArrayList<Lists> search = new ArrayList<>();
+        for (Lists lists : arrayList) {
+            if(lists.getGenre().equalsIgnoreCase(genre)){
+                search.add(lists);
+            }
+        }
+        return search;
     }
 
     @Override
@@ -46,7 +69,14 @@ public class Lists extends Songs implements Interface.IMusic ,Comparable<Lists>,
 
     @Override
     public int compare(Lists o1, Lists o2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    if (o1.date.isBefore(o2.date)) {
+                return -1;
+            } else if (o1.date.isAfter(o2.date)) {
+                return 1;
+            } else {
+                return 0;
+            }
+    
     }
     
 }
