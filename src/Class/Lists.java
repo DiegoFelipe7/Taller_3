@@ -54,29 +54,50 @@ public class Lists extends Songs implements Interface.IMusic ,Comparable<Lists>,
 
     @Override
     public ArrayList<Lists> toSearch(int year) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        ArrayList<Lists> search = new ArrayList<>();
+        for (Lists lists : arrayList) {
+            if(lists.date.getYear() == year){
+                search.add(lists);
+            }
+        }
+        return search;        
+}
 
     @Override
     public ArrayList<Lists> order(String order) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double aux;
+        ArrayList<Lists> search = new ArrayList<>();
+        if(order.equalsIgnoreCase("ASC")){
+            
+            for (Lists lists : search) {
+                if(lists.getDuration()>lists.getDuration()+1){
+                    
+                    search.add(lists);
+                }
+            }
+        }
+        return search;  
     }
 
     @Override
     public int compareTo(Lists o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (duration < o.duration) {
+                return -1;
+        } else if (duration > o.duration) {
+            return 1;
+        } else {
+            return 0;
+        } 
     }
 
     @Override
     public int compare(Lists o1, Lists o2) {
     if (o1.date.isBefore(o2.date)) {
-                return -1;
-            } else if (o1.date.isAfter(o2.date)) {
-                return 1;
-            } else {
-                return 0;
-            }
-    
-    }
-    
+            return -1;
+        } else if (o1.date.isAfter(o2.date)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }  
 }
