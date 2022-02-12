@@ -5,10 +5,15 @@
  */
 package Interface;
 
+import Class.Lists;
+import java.util.ArrayList;
+
 /**
  *
  * @author ASUS
  */
 public interface IMusic {
-    
+    public ArrayList<Lists> toSearch (String genre);  
+    public ArrayList<Lists> toSearch(int year);
+    public ArrayList<Lists> order(String order);
 }
