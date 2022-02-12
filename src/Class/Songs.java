@@ -12,15 +12,24 @@ import java.time.LocalDate;
  * @author ASUS
  */
 public abstract class Songs {
+    
     public String title;
-    private int identifier;
     public LocalDate date;
     public double duration;
     public String genre;
     public String cover;
     public String description;
+    private int identifier;
 
-    public Songs(String title, int identifier, LocalDate date, double duration, String genre, String cover, String description) {
+    public Songs(
+            String title, 
+            int identifier, 
+            LocalDate date, 
+            double duration, 
+            String genre, 
+            String cover, 
+            String description) 
+    {
         this.title = title;
         this.identifier = identifier;
         this.date = date;
@@ -89,12 +98,15 @@ public abstract class Songs {
         this.description = description;
     }
 
-    
     @Override
     public String toString() {
-        return "Song " + identifier + "\n" + "Title = " + title + "\n" + "Date = " + date + "\n" + "Duration = " + duration + "\n" + "Genre = " + genre + "\n" + "Cover = " + cover + "\n" + "Description = " + description + "\n";
+        return "Song " + identifier + "\n" + "Title = " + title + "\n" + 
+                "Date = " + date + "\n" + "Duration = " + duration + "\n" + 
+                "Genre = " + genre + "\n" + "Cover = " + cover + "\n" + 
+                "Description = " + description + "\n";
     }
 
     public abstract int musicCounter();
+    
     public abstract String message();
 }
