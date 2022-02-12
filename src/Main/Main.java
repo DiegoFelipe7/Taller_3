@@ -8,6 +8,7 @@ package Main;
 import Class.Lists;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -112,10 +113,177 @@ public class Main {
                   break;
                     
                 case 3:
-                    
+                    if(arrayList.isEmpty()){
+                        System.out.println("La biblioteca aún no contiene canciones para filtar.\n");
+                    }else{
+                        System.out.println("¿Por qué característica desea filtrar? \n 1. Por género. \n 2. Por año.");
+                        input = keyboard.nextLine();
+                        option = consoleInputVerificationNumber(input);
+                        
+                        while(((option != 1) && (option != 2))== true){
+                            System.out.println("Ingrese una opción de filtrado válida.");
+                            input = keyboard.nextLine(); 
+                            option = consoleInputVerificationNumber(input);
+                        }
+                        
+                        if (option == 1){
+                            System.out.println("Ingrese el género por el que desea filtrar la lista de canciones.");
+                            genre = keyboard.nextLine();
+                            while(genre.isEmpty()){
+                                System.out.println("Ingrese un género válido.");
+                                genre = keyboard.nextLine();
+                            }
+
+                            ArrayList<Lists> filterByGenre = list.toSearch(genre);
+                            System.out.println("Filtro de Canciones por género: \n ");
+                            if (filterByGenre.size()== 0){
+                                System.out.println("No existen canciones con este género. \n");
+                            }else{
+                                for (int i = 0; i <filterByGenre.size(); i++) {
+                                    list = filterByGenre.get(i);
+                                    System.out.println(list.message());
+                                }
+                                System.out.println();
+                            }
+                        }
+                        else if (option == 2){
+                            System.out.println("Ingrese el año por el que desea filtrar la lista de canciones.");
+                            
+                            input = keyboard.nextLine();
+                            year = consoleInputVerificationNumber(input);
+                            while(year == 0){
+                                System.out.println("Ingrese un año válido.");
+                                input = keyboard.nextLine(); 
+                                year = consoleInputVerificationNumber(input);
+                            }
+                            
+
+                            ArrayList<Lists> filterByYear = list.toSearch(year);
+                            
+                            if (filterByYear.size()== 0){
+                                System.out.println("No existen canciones con este año. \n ");
+                            }else{
+                                System.out.println("Filtro de Canciones por año: \n ");
+                                for (int i = 0; i <filterByYear.size(); i++) {
+                                    list = filterByYear.get(i);
+                                    System.out.println(list.message());
+                                }
+                                System.out.println();
+                            }
+                        }else{
+                        break;
+                        }
+                    }  
+                break;
+                
                 case 4:
-                    
+                    if(arrayList.isEmpty()){
+                        System.out.println("La biblioteca aún no contiene canciones para ordenar.\n");
+                    }else{
+                        System.out.println("Elija el orden deseado \n 1. Por Duración. \n 2. Por fecha.");
+                        input = keyboard.nextLine();
+                        option = consoleInputVerificationNumber(input);
+                        
+                        while(((option != 1) && (option != 2))== true){
+                            System.out.println("Ingrese una opción de orden válida.");
+                            input = keyboard.nextLine(); 
+                            option = consoleInputVerificationNumber(input);
+                        }
+                        
+                        if (option == 1) {
+                            System.out.println("Elija el orden deseado \n 1. Descendente. \n 2. Ascendente. \n 3. Orden en que se agregaron las canciones.");
+                            input = keyboard.nextLine();
+                            option = consoleInputVerificationNumber(input);
+
+                            while(((option != 1) && (option != 2) && (option != 3))== true){
+                                System.out.println("Ingrese una opción de orden válida.");
+                                input = keyboard.nextLine(); 
+                                option = consoleInputVerificationNumber(input);
+                            }
+                            
+                            if(option == 1){
+                            Collections.sort(list.getArrayList());
+                            for (Lists a: list.getArrayList()) {
+                                System.out.println(a.message());
+                            }
+                            System.out.println();
+                            }else if(option == 2){
+                            Collections.sort(list.getArrayList(),Collections.reverseOrder());
+                            for (Lists a: list.getArrayList()) {
+                                System.out.println(a.message());
+                            }   
+                            System.out.println();
+                            }else if(option == 3){
+                                list.setArrayList(arrayList);
+                                System.out.println("Lista:");
+
+                                for(int i = 0; i < arrayList.size(); i++){
+                                    for (Lists a : arrayList){
+                                        if (a.getIdentifier() == (i + 1)){
+                                            System.out.println(a.message());
+                                        }
+                                    }   
+                                }
+                            System.out.println();        
+                            }else{
+                            break;
+                            }
+                        }else if (option == 2){
+                            System.out.println("Elija el orden deseado \n 1. Descendente. \n 2. Ascendente. \n 3. Orden en que se agregaron las canciones.");
+                            input = keyboard.nextLine();
+                            option = consoleInputVerificationNumber(input);
+
+                            while(((option != 1) && (option != 2) && (option != 3))== true){
+                                System.out.println("Ingrese una opción de orden válida.");
+                                input = keyboard.nextLine(); 
+                                option = consoleInputVerificationNumber(input);
+                            }
+                            
+                            if(option == 1){
+                                //ArrayList<Lists> nueva = new ArrayList<>();
+                                Collections.sort(arrayList, new Lists());
+                                for (Lists a : arrayList){
+                                    System.out.println(a.message());
+                                }
+                                
+                                System.out.println();
+                                }else if(option == 2){
+                                    Collections.sort(arrayList, new Lists());
+                                    Collections.reverse(arrayList);
+
+                                    for (Lists a : arrayList){
+                                        System.out.println(a.message());
+                                    }  
+                                    System.out.println();
+
+                                }else if(option == 3){
+                                    list.setArrayList(arrayList);
+                                    System.out.println("Lista:");
+
+                                    for(int i = 0; i < arrayList.size(); i++){
+                                        for (Lists a : arrayList){
+                                            if (a.getIdentifier() == (i + 1)){
+                                                System.out.println(a.message());
+                                            }
+                                        }   
+                                    }
+                                System.out.println();        
+                            }else{
+                            break;
+                            }
+                        }else{
+                        break;
+                        }  
+                    }
+                break;
+                
                 case 5:
+                    flag = false;
+                    System.out.println("Biblioteca de música cerrada.");
+                break;
+                
+                default:
+                    System.out.println("La opción seleccionada no existe, por favor digite una válida. \n");                    
             }
         }
     }
