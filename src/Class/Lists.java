@@ -13,10 +13,22 @@ import java.util.Comparator;
  *
  * @author ASUS
  */
-public class Lists extends Songs implements Interface.IMusic ,Comparable<Lists>, Comparator<Lists>  {
-     public ArrayList<Lists> arrayList = new ArrayList<>();
+public class Lists 
+    extends Songs 
+        implements Interface.IMusic ,Comparable<Lists>, Comparator<Lists>  
+{
+    
+    public ArrayList<Lists> arrayList = new ArrayList<>();
 
-    public Lists(String title, int identifier, LocalDate date, double duration, String genre, String cover, String description) {
+    public Lists(
+            String title, 
+            int identifier, 
+            LocalDate date, 
+            double duration, 
+            String genre, 
+            String cover, 
+            String description) 
+    {
         super(title, identifier, date, duration, genre, cover, description);
     }
 
@@ -33,12 +45,13 @@ public class Lists extends Songs implements Interface.IMusic ,Comparable<Lists>,
     
     @Override
     public int musicCounter() {
-         return arrayList.size();  
+        return arrayList.size();  
     }  
 
     @Override
     public String message() {
-        return "Song: " + getIdentifier() + " - Título: " + getTitle() + " - Duración: " + getDuration() + " - Fecha: " + getDate();
+        return "Song: " + getIdentifier() + " - Título: " + getTitle() + 
+                " - Duración: " + getDuration() + " - Fecha: " + getDate();
     }
 
     @Override
@@ -61,17 +74,15 @@ public class Lists extends Songs implements Interface.IMusic ,Comparable<Lists>,
             }
         }
         return search;        
-}
+    }
 
     @Override
     public ArrayList<Lists> order(String order) {
         double aux;
         ArrayList<Lists> search = new ArrayList<>();
         if(order.equalsIgnoreCase("ASC")){
-            
             for (Lists lists : search) {
                 if(lists.getDuration()>lists.getDuration()+1){
-                    
                     search.add(lists);
                 }
             }
@@ -82,7 +93,7 @@ public class Lists extends Songs implements Interface.IMusic ,Comparable<Lists>,
     @Override
     public int compareTo(Lists o) {
         if (duration < o.duration) {
-                return -1;
+            return -1;
         } else if (duration > o.duration) {
             return 1;
         } else {
