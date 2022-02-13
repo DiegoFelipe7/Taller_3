@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Class;
 
 import java.time.LocalDate;
@@ -42,18 +37,49 @@ public class Lists
     public void setArrayList(ArrayList<Lists> arrayList) {
         this.arrayList = arrayList;
     } 
-    
+    /**
+    * [este metodo calcula el numero de canciones que hay en una playlist
+    *]
+    *
+    * @return el tamaño del arreglo
+    * @throws Exception
+    *
+    * @author [Diego felipe , diegofelipem99@gmailcom.]
+    *      
+    * @since [1.0.0]*/
     @Override
     public int musicCounter() {
         return arrayList.size();  
     }  
-
+      /**
+    * [el objetivo de este metodo es enviar un mensaje con la informacion de
+    * alguna cancion
+    *]
+    *
+    * @return mensaje
+    * @throws Exception
+    *
+    * @author [Diego felipe , diegofelipem99@gmailcom.]
+    *      
+    * @since [1.0.0]*/
     @Override
     public String message() {
         return "Song: " + getIdentifier() + " - Título: " + getTitle() + 
                 " - Duración: " + getDuration() + " - Fecha: " + getDate();
     }
-
+    /**
+    * [El objetivo principal de este metodo es realizar una filtro
+    *en un arraylist,en este caso por un genero musical
+    * ]
+    *
+    * @param genre
+    * @return ArrayList con todas las canciones que pertenecen a un genero
+    * musical.
+    * @throws Exception
+    *
+    * @author [Diego felipe , diegofelipem99@gmailcom.]
+    *      
+    * @since [1.0.0]*/
     @Override
     public ArrayList<Lists> toSearch(String genre) {
         ArrayList<Lists> search = new ArrayList<>();
@@ -76,20 +102,7 @@ public class Lists
         return search;        
     }
 
-    @Override
-    public ArrayList<Lists> order(String order) {
-        double aux;
-        ArrayList<Lists> search = new ArrayList<>();
-        if(order.equalsIgnoreCase("ASC")){
-            for (Lists lists : search) {
-                if(lists.getDuration()>lists.getDuration()+1){
-                    search.add(lists);
-                }
-            }
-        }
-        return search;  
-    }
-
+   
     @Override
     public int compareTo(Lists o) {
         if (duration < o.duration) {
@@ -100,7 +113,20 @@ public class Lists
             return 0;
         } 
     }
-
+    /**
+    * [Este metodo es la implementacion de una interfaz la cual tiene como
+    * objetivo ordenar las fechas de la siguiente manera:Descendente,Ascendente,
+    * Orden inicial de las canciones.]
+    *
+    * @param Lists 
+    * @return int con el orden que se el usuario selecciono
+    * 
+    * musical.
+    * @throws Exception
+    *
+    * @author [Diego felipe , diegofelipem99@gmailcom.]
+    *      
+    * @since [1.0.0]*/
     @Override
     public int compare(Lists o1, Lists o2) {
     if (o1.date.isBefore(o2.date)) {
