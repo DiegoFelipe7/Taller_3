@@ -7,13 +7,36 @@ import java.util.Collections;
 import java.util.Scanner;
 
 /**
+ * [ Esta clase tiene como objetivo iniciar la aplicación en la cual se 
+ * podrá realizar la visualización, creación, aplicación de filtros y orden 
+ * a una lista de canciones por medio de interacciones con el usuario.
  *
- * @author ASUS
+ * ]
+ *
+ * @version ["VS" 1.0.0,2022-02-14
+ *
+ * 1.0.0,2022-02-14, La clase corresponde a la versión 1.0.0 del sistema,
+ * la misma hasta el momento no ha recibido ningun refactorings ]
+ *
+ * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+ * 
+ * @since [1.0.0]
+ *
  */
 public class Main {
 
     /**
-     * @param args the command line arguments
+     * [El objetivo principal de este método es iniciar la ejecución del 
+     * programa en el que se podrá realizar la visualización, creación, 
+     * aplicación de filtros y orden a una lista de canciones por medio de 
+     * interacciones con el usuario.
+     * ]
+     *
+     * @param args
+     *
+     * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+     *      
+     * @since [1.0.0]
      */
     public static void main(String[] args) {
         
@@ -327,6 +350,22 @@ public class Main {
         }
     }
 
+    /**
+     * [El objetivo principal de este método es evaluar si el argumento puede
+     * ser convertido a tipo entero, el método se utilizará para validar los
+     * datos pasados por el usuario en los casos en los que se requiera que 
+     * sean numeros enteros.
+     * ]
+     *
+     *
+     * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+     * @param input hace referencia al parametro ingresado por el usuario que
+     * se quiere validar si es un numero entero.
+     * @return el método retorna el parametro dado convertido a tipo entero si 
+     * es posible, de no ser posible retorna el numero cero.
+     *      
+     * @since [1.0.0]
+     */
     public static int consoleInputVerificationNumber(String input){
         try{
             int choice;
@@ -338,6 +377,22 @@ public class Main {
         }
     }
     
+    /**
+     * [El objetivo principal de este método es evaluar si el argumento puede
+     * ser convertido a tipo localdate, el método se utilizará para validar los
+     * datos pasados por el usuario en los casos en los que se requiera que 
+     * sean una fecha en el formato yyyy-mm-dd.
+     * ]
+     *
+     *
+     * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+     * @param input hace referencia al parametro ingresado por el usuario que
+     * se quiere validar si es una fecha en el formato yyyy-mm-dd.
+     * @return el método retorna el parametro dado convertido a tipo localdate
+     * si es posible, de no ser posible retorna nada (null).
+     *      
+     * @since [1.0.0]
+     */
     public static LocalDate consoleInputVerificationDate(String input){
         try{
             LocalDate choice = LocalDate.parse(input);

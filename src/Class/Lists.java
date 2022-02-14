@@ -5,8 +5,21 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 /**
+ * [ Esta clase implementa de la clase abstracta y extiende de las interfaces 
+ * música, comparable y comparator. Su objetivo es la creación de las canciones, 
+ * la lista de estas y sus métodos.
  *
- * @author ASUS
+ * ]
+ *
+ * @version ["VS" 1.0.0,2022-02-14
+ *
+ * 1.0.0,2022-02-14, La clase corresponde a la versión 1.0.0 del sistema,
+ * la misma hasta el momento no ha recibido ningun refactorings ]
+ *
+ * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+ * 
+ * @since [1.0.0]
+ *
  */
 public class Lists 
     extends Songs 
@@ -15,6 +28,17 @@ public class Lists
     
     public ArrayList<Lists> arrayList = new ArrayList<>();
 
+    /**
+     * Constructor de la clase lista, el cual sirve para la creación de 
+     * canciones con toda su información.
+     * @param title hace referencia al título de la canción que se agregará.
+     * @param identifier hace referencia al identificador unico de cada canción.
+     * @param date hace referencia a la fecha de lanzamiento de la canción.
+     * @param duration hace refencia a la duración de la canción en segundos.
+     * @param genre hace referencia al género de la canción.
+     * @param cover hace referencia a la portada de la canción.
+     * @param description hace referencia a una descripción de la canción.
+     */
     public Lists(
             String title, 
             int identifier, 
@@ -37,6 +61,7 @@ public class Lists
     public void setArrayList(ArrayList<Lists> arrayList) {
         this.arrayList = arrayList;
     } 
+    
     /**
     * [este metodo calcula el numero de canciones que hay en una playlist
     *]
@@ -51,6 +76,7 @@ public class Lists
     public int musicCounter() {
         return arrayList.size();  
     }  
+    
       /**
     * [el objetivo de este metodo es enviar un mensaje con la informacion de
     * alguna cancion
@@ -67,6 +93,7 @@ public class Lists
         return "Song: " + getIdentifier() + " - Título: " + getTitle() + 
                 " - Duración: " + getDuration() + " - Fecha: " + getDate();
     }
+    
     /**
     * [El objetivo principal de este metodo es realizar una filtro
     *en un arraylist,en este caso por un genero musical
@@ -91,6 +118,19 @@ public class Lists
         return search;
     }
 
+    /**
+     * [El objetivo principal de este método es realizar un filtro
+     * en un arraylist,en este caso por año de lanzamiento
+     * ]
+     *
+     * @param year Describe el año a partir del cual se realizará el filtro.
+     * @return ArrayList con todas las canciones que pertenecen a un mismo
+     * año de lanzamiento.
+     *
+     * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+     *      
+     * @since [1.0.0]
+     */
     @Override
     public ArrayList<Lists> toSearch(int year) {
         ArrayList<Lists> search = new ArrayList<>();
@@ -102,7 +142,21 @@ public class Lists
         return search;        
     }
 
-   
+    /**
+     * [Este metodo es la implementacion de una interfaz la cual tiene como
+     * objetivo ordenar las canciones de acuerdo a su duración de la siguiente
+     * manera: Descendente, Ascendente, Orden inicial de las canciones.
+     * ]
+     *
+     * @param o Describe la lista de canciones a la cual se quiere aplicar 
+     * el ordenamiento
+     * @return Un numero entero (1, -1, o 0) que prioriza cada objeto de la 
+     * lista para realizar el ordenamiento de la lista.
+     *
+     * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+     *      
+     * @since [1.0.0]
+     */
     @Override
     public int compareTo(Lists o) {
         if (duration < o.duration) {
@@ -113,6 +167,7 @@ public class Lists
             return 0;
         } 
     }
+    
     /**
     * [Este metodo es la implementacion de una interfaz la cual tiene como
     * objetivo ordenar las fechas de la siguiente manera:Descendente,Ascendente,
