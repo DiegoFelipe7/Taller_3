@@ -1,13 +1,27 @@
 package Class;
 
 import java.time.LocalDate;
-
 /**
- *
- * @author ASUS
- */
+* [Esta es la clase abstracta la cual tiene un serie de atributos y metodos que
+* posterior mente seran extendidos a otras clases "hijas",el objetivo principal
+* de esta clase es ser un modelde sobre el cual se construyen otras clases
+*
+* ]
+*
+* @version [ "VS" 1.0.0,2022-02-13
+*
+* 1.0.0,2022-02-13, La clase corresponde a la versión 1.0.0 del sistema,
+* la misma a hasta el momento no a recibido ningun refactorings ]
+*
+* @author [Diego felipe , diegofelipem99@gmailcom.]
+* 
+* @since [1.0.0]
+*
+*/
 public abstract class Songs {
-    
+    /*
+    *declaracion de los atributos de clase
+    */
     public String title;
     public LocalDate date;
     public double duration;
@@ -16,6 +30,13 @@ public abstract class Songs {
     public String description;
     private int identifier;
 
+     /**
+
+     * Constructor con los atributos de la clase
+
+     * @param titulo,identificador,fecha,duracion,genero,caratula,descripcion
+
+     */
     public Songs(
             String title, 
             int identifier, 
@@ -32,7 +53,7 @@ public abstract class Songs {
         this.genre = genre;
         this.cover = cover;
         this.description = description;
-    }
+    }//Cierre del constructor
 
     public Songs() {
     }
@@ -100,8 +121,27 @@ public abstract class Songs {
                 "Genre = " + genre + "\n" + "Cover = " + cover + "\n" + 
                 "Description = " + description + "\n";
     }
-
-    public abstract int musicCounter();
+    /**
+    * [este metodo abstracto calcula el numero de canciones que hay en una playlist
+    *]
+    *
+    * @throws Exception
+    *
+    * @author [Diego felipe , diegofelipem99@gmailcom.]
+    *      
+    * @since [1.0.0]*/
     
+    public abstract int musicCounter();
+      
+      /**
+    * [el objetivo de este metodo abstracto es enviar un mensaje con la informacion de
+    * alguna cancion 
+    *]
+    *
+    * @return mensaje
+    *
+    * @author [Diego felipe , diegofelipem99@gmailcom.]
+    *      
+    * @since [1.0.0]*/
     public abstract String message();
 }
