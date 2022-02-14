@@ -114,6 +114,18 @@ public abstract class Songs {
         this.description = description;
     }
 
+    /**
+     * [Este metodo convierte un objeto a string, en este caso una canción o
+     * un grupo de canciones en string.
+     * ]
+     *
+     * @return un string que muestra la información de una o mas canciones
+     * de manera estructurada.
+     *
+     * @author [Yeisson Augusto Vahos Cortes, yvahosc@unal.edu.co]
+     *      
+     * @since [1.0.0]
+     */
     @Override
     public String toString() {
         return "Song " + identifier + "\n" + "Title = " + title + "\n" + 
@@ -121,6 +133,7 @@ public abstract class Songs {
                 "Genre = " + genre + "\n" + "Cover = " + cover + "\n" + 
                 "Description = " + description + "\n";
     }
+    
     /**
     * [este metodo abstracto calcula el numero de canciones que hay en una playlist
     *]
@@ -130,7 +143,7 @@ public abstract class Songs {
     * @author [Diego felipe , diegofelipem99@gmailcom.]
     *      
     * @since [1.0.0]*/
-    
+
     public abstract int musicCounter();
       
       /**
