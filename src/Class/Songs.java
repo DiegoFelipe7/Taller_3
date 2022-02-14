@@ -10,9 +10,10 @@ import java.time.LocalDate;
 *
 * @version [ "VS" 1.0.0,2022-02-13
 *
-* 1.0.0,2022-02-13, La clase corresponde a la versión 1.0.0 del sistema,
+* 1.0.0,2022-02-13, La clase corresponde a la versión 1.0.1 del sistema,
 * la misma a hasta el momento no a recibido ningun refactorings ]
-*
+* cm se realizo cambios en los atributos de la clase,los cuales pasaron de ser
+* publicos a privados
 * @author [Diego felipe , diegofelipem99@gmailcom.]
 * 
 * @since [1.0.0]
@@ -35,7 +36,13 @@ public abstract class Songs {
 
      * Constructor con los atributos de la clase
 
-     * @param titulo,identificador,fecha,duracion,genero,caratula,descripcion
+     * @param title hace referencia al título de la canción que se agregará.
+     * @param identifier hace referencia al identificador unico de cada canción.
+     * @param date hace referencia a la fecha de lanzamiento de la canción.
+     * @param duration hace refencia a la duración de la canción en segundos.
+     * @param genre hace referencia al género de la canción.
+     * @param cover hace referencia a la portada de la canción.
+     * @param description hace referencia a una descripción de la canción.
 
      */
     public Songs(
