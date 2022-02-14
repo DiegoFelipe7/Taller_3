@@ -22,13 +22,14 @@ public abstract class Songs {
     /*
     *declaracion de los atributos de clase
     */
-    public String title;
-    public LocalDate date;
-    public double duration;
-    public String genre;
-    public String cover;
-    public String description;
+    private String title;
     private int identifier;
+    private LocalDate date;
+    private double duration;
+    private String genre;
+    private String cover;
+    private String description;
+    
 
      /**
 
@@ -128,10 +129,10 @@ public abstract class Songs {
      */
     @Override
     public String toString() {
-        return "Song " + identifier + "\n" + "Title = " + title + "\n" + 
-                "Date = " + date + "\n" + "Duration = " + duration + "\n" + 
-                "Genre = " + genre + "\n" + "Cover = " + cover + "\n" + 
-                "Description = " + description + "\n";
+        return "Song " + getIdentifier() + "\n" + "Title = " + getTitle() + "\n" + 
+                "Date = " + getDate() + "\n" + "Duration = " + getDuration() + "\n" + 
+                "Genre = " + getGenre() + "\n" + "Cover = " + getCover() + "\n" + 
+                "Description = " + getDescription() + "\n";
     }
     
     /**

@@ -135,7 +135,7 @@ public class Lists
     public ArrayList<Lists> toSearch(int year) {
         ArrayList<Lists> search = new ArrayList<>();
         for (Lists lists : arrayList) {
-            if(lists.date.getYear() == year){
+            if(lists.getDate().getYear() == year){
                 search.add(lists);
             }
         }
@@ -159,9 +159,9 @@ public class Lists
      */
     @Override
     public int compareTo(Lists o) {
-        if (duration < o.duration) {
+        if (getDuration() < o.getDuration()) {
             return -1;
-        } else if (duration > o.duration) {
+        } else if (getDuration() > o.getDuration()) {
             return 1;
         } else {
             return 0;
@@ -184,9 +184,9 @@ public class Lists
     * @since [1.0.0]*/
     @Override
     public int compare(Lists o1, Lists o2) {
-    if (o1.date.isBefore(o2.date)) {
+    if (o1.getDate().isBefore(o2.getDate())) {
             return -1;
-        } else if (o1.date.isAfter(o2.date)) {
+        } else if (o1.getDate().isAfter(o2.getDate())) {
             return 1;
         } else {
             return 0;
